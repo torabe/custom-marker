@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Custom Marker</title>
+  <script>
+    function initMap(){
+      var options = {
+        gestureHandling: 'greedy',
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: this.center,
+        zoom: this.zoom,
+        clickableIcons: false
+      };
+      var map = new google.maps.Map(document.getElementById('map'), options);
+/*
+      var marker = new CustomMarker(
+        map,
+        0,
+        0,
+      );
+
+      google.maps.event.addListener(marker, 'click',function(){
+        marker.setSelected(!marker.isSelected);
+      });
+*/
+    }
+  </script>
+  <style>
+    #map{
+      width:500px;
+      height:500px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>
