@@ -1,2 +1,2 @@
 # custom-marker
-Google Map API用カスタマイズマーカー
+Google Map API用カスタムマーカー
