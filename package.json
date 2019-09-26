@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "yarn run develop",
     "develop": "webpack --progress --mode development --devtool source-map --config ./webpack.config.js --optimize-minimize",
-    "start": "webpack-dev-server --mode development --devtool source-map --open --config ./webpack.config.js --hot --inline",
+    "start": "webpack-dev-server --mode development --devtool source-map --config ./webpack.config.js --hot --inline --watch-content-base --content-base dist/ --open-page index.html",
     "watch": "webpack --progress --mode development --devtool source-map --config ./webpack.config.js --watch",
     "build": "webpack --progress --mode production --devtool none --config ./webpack.config.js --optimize-minimize"
   },

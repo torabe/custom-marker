@@ -5,40 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Custom Marker</title>
-  <script>
-    function initMap(){
-      var options = {
-        gestureHandling: 'greedy',
-        disableDefaultUI: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: this.center,
-        zoom: this.zoom,
-        clickableIcons: false
-      };
-      var map = new google.maps.Map(document.getElementById('map'), options);
-/*
-      var marker = new CustomMarker(
-        map,
-        0,
-        0,
-      );
-
-      google.maps.event.addListener(marker, 'click',function(){
-        marker.setSelected(!marker.isSelected);
-      });
-*/
-    }
-  </script>
   <style>
     #map{
       width:500px;
       height:500px;
     }
+    .custom-marker{
+      background:#00FF00;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      cursor:pointer;
+    }
+    .custom-marker--selected{
+      background:#FF0000;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      cursor:pointer;
+    }
   </style>
 </head>
 <body>
   <div id="map"></div>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+  <button type="button" id="deselected">選択解除</button>
+  <button type="button" id="switch-display">表示/非表示</button>
+  <script src="https://maps.googleapis.com/maps/api/js?key="></script>
   <script src="./js/index.js"></script>
 </body>
 </html>

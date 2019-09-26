@@ -3,7 +3,7 @@ const glob = require('glob');
 const Reg = new RegExp('./src/');
 
 // entry point js
-const jsTargets = glob.sync('./src/**/index.js');
+const jsTargets = glob.sync('./src/js/index.js');
 const jsEntries = {};
 jsTargets.forEach(value => {
   const key = value.replace(Reg, '');
