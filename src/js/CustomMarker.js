@@ -30,7 +30,7 @@ export default class CustomMarker extends google.maps.OverlayView{
   onAdd(){
     this.el = document.createElement('div');
 
-    const className = 'custom-marker' + (this.isSelected) ? '--selected': '';
+    const className = 'custom-marker' + ((this.isSelected) ? '--selected': '');
     this.el.classList.add(className);
 
     if(!this.isDisplay){
@@ -44,6 +44,7 @@ export default class CustomMarker extends google.maps.OverlayView{
     panes.overlayMouseTarget.appendChild(this.el);
     google.maps.event.addDomListener(this.el, 'click', () => {
       google.maps.event.trigger(this, 'click');
+      this.setSelected(true);
     });
   }
 
@@ -55,6 +56,7 @@ export default class CustomMarker extends google.maps.OverlayView{
     if(!this.el) return;
 
     const point = this.getProjection().fromLatLngToDivPixel(new google.maps.LatLng(this.position.lat, this.position.lng));
+    this.el.style.position = 'absolute';
     this.el.style.left = point.x + 'px';
     this.el.style.top = point.y + 'px';
   }
@@ -85,7 +87,7 @@ export default class CustomMarker extends google.maps.OverlayView{
     if(boolean === this.isDisplay) return;
 
     this.isDisplay = boolean;
-    this.setStyle();
+    this.applyStlyes();
   }
 
   /**
@@ -94,14 +96,14 @@ export default class CustomMarker extends google.maps.OverlayView{
   switchClass(){
     if(!this.el) return;
 
-    const className = 'custom-marker' + (this.isSelected) ? '--selected': '';
+    const className = 'custom-marker' + ((this.isSelected) ? '--selected': '');
     this.el.classList.replace(this.el.classList.item(0),className);
   }
 
   /**
-   * set styles
+   * apply styles
    */
-  setStyle(){
+  applyStlyes(){
     if(!this.el) return;
 
     this.el.style.display = (!this.isDisplay) ? 'none' : '';
